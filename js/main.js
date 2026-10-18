@@ -214,6 +214,9 @@
     * ------------------------------------------------------ */ 
     const ssSwiper = function() {
 
+        // skip when the page has no slider (testimonials removed)
+        if (!document.querySelector('.swiper-container')) return;
+
         const mySwiper = new Swiper('.swiper-container', {
 
             slidesPerView: 1,
