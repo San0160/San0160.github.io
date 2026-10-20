@@ -4172,6 +4172,84 @@ img.u-pull-left {
     color            : white;
 }
 
+/* --------------------------------------------------------------------
+ * ## project popup + links (dark theme)
+ * -------------------------------------------------------------------- */
+.folio-list__proj-link[href="#"] {
+    display : none;
+}
+
+.modal-popup {
+    background-color : var(--color-gray-11);
+    color            : #b4b6ba;
+    border-top       : 2px solid var(--color-1);
+    max-height       : 92vh;
+}
+
+.modal-popup img {
+    display          : block;
+    width            : 100%;
+    max-height       : 44vh;
+    object-fit       : contain;
+    background-color : #0a0b0c;
+}
+
+.modal-popup h5 {
+    color          : var(--color-white);
+    font-weight    : 600;
+    letter-spacing : -.005em;
+}
+
+.modal-popup__cat {
+    color : #8e9094;
+}
+
+.modal-popup__cat::before {
+    filter  : invert(1);
+    opacity : .55;
+}
+
+.modal-popup__links {
+    display : flex;
+    gap     : 1.2rem;
+    padding : var(--vspace-0_5) var(--vspace-1_25) var(--vspace-1_25);
+}
+
+.modal-popup__btn {
+    flex            : 1 1 0;
+    display         : block;
+    padding         : 1.5rem 1.6rem;
+    text-align      : center;
+    font-size       : 1.2rem;
+    font-weight     : 600;
+    letter-spacing  : .25em;
+    text-transform  : uppercase;
+    line-height     : 1.2;
+    color           : var(--color-1);
+    background      : transparent;
+    border          : 1px solid var(--color-1);
+    text-decoration : none;
+    transition      : background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.modal-popup__btn--primary {
+    background-color : var(--color-1);
+    color            : var(--color-gray-11);
+}
+
+.modal-popup__btn:hover,
+.modal-popup__btn:focus {
+    background-color : var(--color-1-light);
+    border-color     : var(--color-1-light);
+    color            : var(--color-gray-11);
+}
+
+@media screen and (max-width: 480px) {
+    .modal-popup__links {
+        flex-direction : column;
+    }
+}
+
 /* ------------------------------------------------------------------- 
  * ## testimonials
  * ------------------------------------------------------------------- */
