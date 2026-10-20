@@ -75,12 +75,12 @@
 /* ------------------------------------------------------------------- 
  * ## fonts 
  * ------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Serif+Text:ital@0;1&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
 
-    --font-1 : "Public Sans", sans-serif;
-    --font-2 : "DM Serif Display", serif;
+    --font-1 : "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-2 : "Inter", "Helvetica Neue", Arial, sans-serif;
 
     /* monospace
     */
@@ -1301,7 +1301,7 @@ a:active {
 h1, h2, h3, h4, h5, h6, 
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family            : var(--font-2);
-    font-weight            : 400;
+    font-weight            : 500;
     color                  : var(--color-text-dark);
     font-variant-ligatures : common-ligatures;
     text-rendering         : optimizeLegibility;
@@ -2686,10 +2686,12 @@ img.u-pull-left {
 }
 
 .text-huge-title {
-    --text-huge : 6.4rem;
-    font-size   : var(--text-huge);
-    line-height : 1.15;
-    margin-top  : 0;
+    --text-huge    : 5.6rem;
+    font-size      : var(--text-huge);
+    font-weight    : 600;
+    letter-spacing : -.025em;
+    line-height    : 1.15;
+    margin-top     : 0;
 }
 
 /* ------------------------------------------------------------------- 
@@ -3402,49 +3404,146 @@ img.u-pull-left {
  * ## about info
  * -------------------------------------------------------------------- */
 .about-info {
-    align-items : center;
-}
-
-.about-info__pic {
-    object-fit     : cover;
-    margin         : 0;
-    vertical-align : bottom;
+    align-items : flex-start;
 }
 
 .about-info__text {
-    padding     : 0 5vw var(--vspace-2) 0;
-    margin-left : 0;
+    padding-right : 4rem;
 }
 
 .about-info__text .text-pretitle {
     margin-bottom : var(--vspace-1);
 }
 
-.about-info__text .btn {
-    margin-top    : var(--vspace-1);
+.about-info__lead {
+    font-family    : var(--font-2);
+    font-weight    : 500;
+    font-size      : 2.8rem;
+    line-height    : 1.4;
+    letter-spacing : -.015em;
+    color          : var(--color-white);
+    margin-top     : 0;
+    margin-bottom  : 2.8rem;
+}
+
+.about-info__body {
+    font-size    : 1.7rem;
+    font-weight  : 400;
+    line-height  : 1.85;
+    color        : #c4c6c9;
+    text-align   : justify;
+    text-justify : inter-word;
+    hyphens      : auto;
+    margin-top   : 0;
+    margin-bottom: 2rem;
+}
+
+.about-info__btn {
+    margin-top    : 1.6rem;
     margin-bottom : 0;
+}
+
+/* at a glance card */
+.about-facts {
+    padding          : 3.2rem 3.6rem 2.4rem;
+    background-color : rgba(255, 255, 255, .03);
+    border           : 1px solid rgba(255, 255, 255, .08);
+    border-top       : 2px solid var(--color-1);
+}
+
+.about-facts__title {
+    font-family    : var(--font-1);
+    font-size      : 1.3rem;
+    font-weight    : 600;
+    letter-spacing : .25em;
+    text-transform : uppercase;
+    color          : var(--color-1);
+    margin         : 0 0 1.2rem 0;
+}
+
+.about-facts__list {
+    margin : 0;
+}
+
+.about-facts__list > div {
+    padding    : 1.6rem 0;
+    border-top : 1px solid rgba(255, 255, 255, .08);
+}
+
+.about-facts__list dt {
+    font-size      : 1.2rem;
+    font-weight    : 500;
+    letter-spacing : .2em;
+    text-transform : uppercase;
+    color          : #8e9094;
+    margin         : 0 0 .4rem 0;
+    padding        : 0;
+}
+
+.about-facts__list dd {
+    font-size   : 1.7rem;
+    line-height : 1.5;
+    color       : var(--color-white);
+    margin      : 0;
+    padding     : 0;
 }
 
 /* --------------------------------------------------------------------
  * ## about expertise
  * -------------------------------------------------------------------- */
 .about-expertise {
-    padding-top : calc(6 * var(--space));
+    padding-top : calc(8 * var(--space));
+}
+
+.about-expertise__intro {
+    max-width     : 62rem;
+    font-size     : 1.8rem;
+    line-height   : 1.7;
+    color         : #b4b6ba;
+    margin-top    : 0;
+    margin-bottom : 4rem;
 }
 
 .about-expertise .skills-list {
-    list-style  : none;
-    margin-top  : var(--vspace-1);
-    margin-left : 0;
+    list-style            : none;
+    margin                : 0;
+    padding               : 0;
+    counter-reset         : skill;
+    display               : grid;
+    grid-template-columns : repeat(2, minmax(0, 1fr));
+    grid-template-rows    : repeat(5, auto);
+    grid-auto-flow        : column;
+    column-gap            : 8rem;
 }
 
 .about-expertise .skills-list li {
-    display      : inline-block;
-    padding-left : 0;
+    counter-increment : skill;
+    display           : flex;
+    align-items       : baseline;
+    gap               : 2.4rem;
+    margin            : 0;
+    padding           : 2.2rem 0;
+    border-top        : 1px solid rgba(255, 255, 255, .12);
+    font-family       : var(--font-1);
+    font-size         : 2rem;
+    font-weight       : 500;
+    line-height       : 1.35;
+    color             : var(--color-white);
+    transition        : color .3s;
 }
 
-.about-expertise .skills-list li:not(:last-child)::after {
-    content : ", ";
+.about-expertise .skills-list li::before {
+    content                : counter(skill, decimal-leading-zero);
+    flex                   : 0 0 auto;
+    font-size              : 1.4rem;
+    font-weight            : 500;
+    letter-spacing         : .15em;
+    font-variant-numeric   : tabular-nums;
+    color                  : var(--color-1);
+}
+
+.about-expertise .skills-list li:hover {
+    color : var(--color-1-light);
 }
 
 /* --------------------------------------------------------------------
@@ -3527,22 +3626,35 @@ img.u-pull-left {
  * responsive:
  * about
  * ------------------------------------------------------------------- */
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1200px) {
     .about-info__text {
-        padding : var(--vspace-2) 8rem var(--vspace-1_5) 0;
+        padding-right : 0;
+    }
+
+    .about-facts {
+        margin-top : var(--vspace-2);
     }
 }
 
-@media screen and (max-width: 1200px) {
-    .about-info {
-        --gutter  : 1.6rem;
-        width     : 92%;
-        max-width : 800px;
+@media screen and (max-width: 800px) {
+    .about-info__lead {
+        font-size : 2.4rem;
     }
 
-    .about-info__text {
-        padding     : var(--vspace-1) 0 0 0;
-        margin-left : 0;
+    .about-info__body {
+        text-align : left;
+        hyphens    : manual;
+    }
+
+    .about-expertise .skills-list {
+        grid-template-columns : minmax(0, 1fr);
+        grid-template-rows    : none;
+        grid-auto-flow        : row;
+    }
+
+    .about-expertise .skills-list li {
+        font-size : 1.8rem;
+        padding   : 1.8rem 0;
     }
 }
 
@@ -3559,12 +3671,6 @@ img.u-pull-left {
 
     .about-timelines .column+.column {
         margin-top : var(--vspace-1_5);
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .about-info {
-        width : 100%;
     }
 }
 
